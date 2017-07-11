@@ -61,6 +61,20 @@ class AirCargoProblem(Problem):
             """
             loads = []
             # TODO create all load ground actions from the domain Load action
+            for cargo in self.cargos:
+                for plane in self.planes:
+                    for airport in self.airports:
+                        precond_pos = [
+                            expr("At({}, {})".format(cargo, airport)),
+                            expr("At({}, {})".format(plane, airport)),
+                        ]
+                        precond_neg = []
+                        effect_add = [expr("In({}, {}").format(cargo, plane)]
+                        effect_rem = [expr("At({}, {}").format(cargo, airport)]
+                        unload = Action(expr("Load({}, {}, {})".format(cargo, plane, airport)),
+                                        [precond_pos, precond_neg],
+                                        [effect_add, effect_rem])
+                        loads.append(unload)
             return loads
 
         def unload_actions():
@@ -70,6 +84,20 @@ class AirCargoProblem(Problem):
             """
             unloads = []
             # TODO create all Unload ground actions from the domain Unload action
+            for cargo in self.cargos:
+                for plane in self.planes:
+                    for airport in self.airports:
+                        precond_pos = [
+                            expr("In({}, {})".format(cargo, plane)),
+                            expr("At({}, {})".format(plane, airport)),
+                        ]
+                        precond_neg = []
+                        effect_add = [expr("At({}, {}").format(cargo, airport)]
+                        effect_rem = [expr("In({}, {}").format(cargo, plane)]
+                        unload = Action(expr("Unload({}, {}, {})".format(cargo, plane, airport)),
+                                        [precond_pos, precond_neg],
+                                        [effect_add, effect_rem])
+                        unloads.append(unload)
             return unloads
 
         def fly_actions():
@@ -105,6 +133,10 @@ class AirCargoProblem(Problem):
         """
         # TODO implement
         possible_actions = []
+        # assuming action_list is mapped to the state str
+        for i, state_var in enumerate(state):
+            if state_var == 'T':
+                possible_actions.append(self.actions_list[i])
         return possible_actions
 
     def result(self, state: str, action: Action):
