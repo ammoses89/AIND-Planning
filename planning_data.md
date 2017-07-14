@@ -1046,3 +1046,179 @@ Unload(C2, P2, SFO)
 Unload(C1, P1, JFK)
 ```
 
+
+
+
+
+### Heuristic Planning (with A* Search)
+
+1. `air_cargo_p1`
+
+* A* with `h1` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+    55          57         224
+
+Plan length: 6  Time elapsed in seconds: 0.06967318704118952
+Load(C1, P1, SFO)
+Load(C2, P2, JFK)
+Fly(P1, SFO, JFK)
+Fly(P2, JFK, SFO)
+Unload(C1, P1, JFK)
+Unload(C2, P2, SFO)
+```
+
+* A* with `h_ignore_preconditions` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+    41          43         170
+
+Plan length: 6  Time elapsed in seconds: 0.06187749397940934
+Load(C1, P1, SFO)
+Fly(P1, SFO, JFK)
+Unload(C1, P1, JFK)
+Load(C2, P2, JFK)
+Fly(P2, JFK, SFO)
+Unload(C2, P2, SFO)
+```
+
+
+
+* A* with `h_pg_levelsum` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+    11          13          50
+
+Plan length: 6  Time elapsed in seconds: 0.7367523870198056
+Load(C1, P1, SFO)
+Fly(P1, SFO, JFK)
+Load(C2, P2, JFK)
+Fly(P2, JFK, SFO)
+Unload(C1, P1, JFK)
+Unload(C2, P2, SFO)
+```
+
+2. `air_cargo_p2`
+
+* A* with `h1` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+   4852        4854       44030
+
+Plan length: 9  Time elapsed in seconds: 16.775248043006286
+Load(C1, P1, SFO)
+Load(C2, P2, JFK)
+Load(C3, P3, ATL)
+Fly(P1, SFO, JFK)
+Fly(P2, JFK, SFO)
+Fly(P3, ATL, SFO)
+Unload(C3, P3, SFO)
+Unload(C2, P2, SFO)
+Unload(C1, P1, JFK)
+```
+
+* A* with `h_ignore_preconditions` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+   1450        1452       13303
+
+Plan length: 9  Time elapsed in seconds: 7.008110485970974
+Load(C3, P3, ATL)
+Fly(P3, ATL, SFO)
+Unload(C3, P3, SFO)
+Load(C2, P2, JFK)
+Fly(P2, JFK, SFO)
+Unload(C2, P2, SFO)
+Load(C1, P1, SFO)
+Fly(P1, SFO, JFK)
+Unload(C1, P1, JFK)
+```
+
+* A* with `h_pg_levelsum` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+    86          88         841
+
+Plan length: 9  Time elapsed in seconds: 58.93616663099965
+Load(C1, P1, SFO)
+Fly(P1, SFO, JFK)
+Load(C2, P2, JFK)
+Fly(P2, JFK, SFO)
+Load(C3, P3, ATL)
+Fly(P3, ATL, SFO)
+Unload(C3, P3, SFO)
+Unload(C2, P2, SFO)
+Unload(C1, P1, JFK)
+```
+
+3. `air_cargo_p3`
+
+* A* with `h1` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+  18223       18225       159618
+
+Plan length: 12  Time elapsed in seconds: 77.22231845697388
+Load(C1, P1, SFO)
+Load(C2, P2, JFK)
+Fly(P1, SFO, ATL)
+Load(C3, P1, ATL)
+Fly(P2, JFK, ORD)
+Load(C4, P2, ORD)
+Fly(P2, ORD, SFO)
+Fly(P1, ATL, JFK)
+Unload(C4, P2, SFO)
+Unload(C3, P1, JFK)
+Unload(C2, P2, SFO)
+Unload(C1, P1, JFK)
+```
+
+* A* with `h_ignore_preconditions` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+   5040        5042       44944
+
+Plan length: 12  Time elapsed in seconds: 24.625816278043203
+Load(C2, P2, JFK)
+Fly(P2, JFK, ORD)
+Load(C4, P2, ORD)
+Fly(P2, ORD, SFO)
+Unload(C4, P2, SFO)
+Load(C1, P1, SFO)
+Fly(P1, SFO, ATL)
+Load(C3, P1, ATL)
+Fly(P1, ATL, JFK)
+Unload(C3, P1, JFK)
+Unload(C2, P2, SFO)
+Unload(C1, P1, JFK)
+```
+
+* A* with `h_pg_levelsum` heuristic
+
+```
+Expansions   Goal Tests   New Nodes
+   315         317         2902
+
+Plan length: 12  Time elapsed in seconds: 300.95208852604264
+Load(C2, P2, JFK)
+Fly(P2, JFK, ORD)
+Load(C4, P2, ORD)
+Fly(P2, ORD, SFO)
+Load(C1, P1, SFO)
+Fly(P1, SFO, ATL)
+Load(C3, P1, ATL)
+Fly(P1, ATL, JFK)
+Unload(C4, P2, SFO)
+Unload(C3, P1, JFK)
+Unload(C2, P2, SFO)
+Unload(C1, P1, JFK)
+```
+
