@@ -1222,3 +1222,22 @@ Unload(C2, P2, SFO)
 Unload(C1, P1, JFK)
 ```
 
+
+
+-----
+
+* Provide an optimal plan for Problems 1, 2, and 3.
+
+
+
+* Compare and contrast non-heuristic search result metrics 
+
+* Compare and contrast heuristic search result metrics using A* with the "ignore preconditions" and "level-sum" heuristics for Problems 1, 2, and 3.
+
+* What was the best heuristic used in these problems? Was it better than non-heuristic search planning methods for all problems? Why or why not?
+
+  The optimal plan for Problem 1 and Problem 2 is `h_ignore_preconditions`
+
+  The optimal plan for Problem 3 is `h_1` 
+
+* Provide tables or other visual aids as needed for clarity in your discussion.
