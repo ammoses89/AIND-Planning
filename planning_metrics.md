@@ -737,24 +737,30 @@ Unload(C1, P1, JFK)
 
 ```
 Expansions   Goal Tests   New Nodes
-   325         806         2792
+  14663       18098       129631
 
-Plan length: 6  Time elapsed in seconds: 2.228607640019618
+Plan length: 12  Time elapsed in seconds: 140.06852274799894
 Load(C1, P1, SFO)
 Load(C2, P2, JFK)
-Fly(P2, JFK, SFO)
-Unload(C2, P2, SFO)
-Fly(P1, SFO, JFK)
+Fly(P2, JFK, ORD)
+Load(C4, P2, ORD)
+Fly(P1, SFO, ATL)
+Load(C3, P1, ATL)
+Fly(P1, ATL, JFK)
 Unload(C1, P1, JFK)
+Unload(C3, P1, JFK)
+Fly(P2, ORD, SFO)
+Unload(C2, P2, SFO)
+Unload(C4, P2, SFO)
 ```
 
 * `depth_first_search_graph`
 
 ```
 Expansions   Goal Tests   New Nodes
-   286         287         2365
+   408         409         3364
 
-Plan length: 274  Time elapsed in seconds: 2.036507358017843
+Plan length: 392  Time elapsed in seconds: 2.506355165001878
 Fly(P1, SFO, ORD)
 Fly(P2, JFK, ORD)
 Fly(P1, ORD, ATL)
@@ -1029,19 +1035,143 @@ Fly(P1, ORD, ATL)
 Fly(P2, SFO, JFK)
 Fly(P1, ATL, SFO)
 Unload(C2, P1, SFO)
+Fly(P1, SFO, ORD)
+Fly(P2, JFK, ORD)
+Fly(P1, ORD, ATL)
+Fly(P2, ORD, ATL)
+Fly(P1, ATL, JFK)
+Load(C1, P1, JFK)
+Fly(P2, ATL, ORD)
+Fly(P1, JFK, ORD)
+Fly(P2, ORD, SFO)
+Fly(P1, ORD, ATL)
+Fly(P2, SFO, JFK)
+Fly(P1, ATL, SFO)
+Unload(C1, P1, SFO)
+Fly(P1, SFO, ORD)
+Fly(P2, JFK, ORD)
+Fly(P1, ORD, ATL)
+Fly(P2, ORD, ATL)
+Fly(P1, ATL, JFK)
+Fly(P2, ATL, SFO)
+Load(C4, P2, SFO)
+Fly(P2, SFO, ATL)
+Fly(P1, JFK, ORD)
+Fly(P2, ATL, JFK)
+Fly(P1, ORD, ATL)
+Fly(P2, JFK, ORD)
+Fly(P1, ATL, SFO)
+Load(C3, P1, SFO)
+Fly(P2, ORD, ATL)
+Fly(P1, SFO, ORD)
+Fly(P2, ATL, SFO)
+Fly(P1, ORD, ATL)
+Fly(P2, SFO, JFK)
+Unload(C4, P2, JFK)
+Fly(P1, ATL, ORD)
+Fly(P2, JFK, ORD)
+Fly(P1, ORD, SFO)
+Fly(P2, ORD, ATL)
+Fly(P1, SFO, JFK)
+Fly(P2, ATL, SFO)
+Load(C4, P1, JFK)
+Fly(P2, SFO, ORD)
+Fly(P1, JFK, ATL)
+Fly(P2, ORD, ATL)
+Fly(P1, ATL, ORD)
+Unload(C3, P1, ORD)
+Fly(P1, ORD, ATL)
+Fly(P2, ATL, ORD)
+Fly(P1, ATL, SFO)
+Fly(P2, ORD, SFO)
+Fly(P1, SFO, JFK)
+Fly(P2, SFO, JFK)
+Unload(C4, P1, JFK)
+Fly(P2, JFK, ORD)
+Fly(P1, JFK, ATL)
+Fly(P2, ORD, ATL)
+Fly(P1, ATL, ORD)
+Fly(P2, ATL, SFO)
+Fly(P1, ORD, SFO)
+Load(C2, P2, SFO)
+Fly(P2, SFO, ORD)
+Fly(P1, SFO, ORD)
+Fly(P2, ORD, ATL)
+Fly(P1, ORD, ATL)
+Fly(P2, ATL, JFK)
+Fly(P1, ATL, JFK)
+Unload(C2, P2, JFK)
+Fly(P2, JFK, ORD)
+Fly(P1, JFK, ORD)
+Fly(P2, ORD, ATL)
+Fly(P1, ORD, ATL)
+Fly(P2, ATL, SFO)
+Fly(P1, ATL, SFO)
+Load(C1, P2, SFO)
+Fly(P2, SFO, ORD)
+Fly(P1, SFO, ORD)
+Fly(P2, ORD, ATL)
+Fly(P1, ORD, ATL)
+Fly(P2, ATL, JFK)
+Fly(P1, ATL, JFK)
+Unload(C1, P2, JFK)
+Fly(P2, JFK, ORD)
+Fly(P1, JFK, ORD)
+Fly(P2, ORD, ATL)
+Load(C3, P1, ORD)
+Fly(P1, ORD, ATL)
+Fly(P2, ATL, ORD)
+Fly(P1, ATL, SFO)
+Fly(P2, ORD, SFO)
+Fly(P1, SFO, JFK)
+Load(C4, P1, JFK)
+Fly(P2, SFO, JFK)
+Fly(P1, JFK, ORD)
+Fly(P2, JFK, ORD)
+Fly(P1, ORD, ATL)
+Fly(P2, ORD, ATL)
+Fly(P1, ATL, SFO)
+Unload(C4, P1, SFO)
+Fly(P2, ATL, ORD)
+Fly(P1, SFO, ORD)
+Fly(P2, ORD, SFO)
+Fly(P1, ORD, ATL)
+Fly(P2, SFO, JFK)
+Fly(P1, ATL, JFK)
+Load(C2, P2, JFK)
+Fly(P2, JFK, ORD)
+Fly(P1, JFK, ORD)
+Fly(P2, ORD, ATL)
+Fly(P1, ORD, ATL)
+Fly(P2, ATL, SFO)
+Fly(P1, ATL, SFO)
+Unload(C2, P2, SFO)
+Fly(P2, SFO, ORD)
+Fly(P1, SFO, ORD)
+Fly(P2, ORD, ATL)
+Fly(P1, ORD, ATL)
+Fly(P2, ATL, JFK)
+Fly(P1, ATL, JFK)
+Unload(C3, P1, JFK)
 ```
 
 * `uniform_cost_search`
 
 ```
 Expansions   Goal Tests   New Nodes
-   1087        1089        9592
+  18223       18225       159618
 
-Plan length: 6  Time elapsed in seconds: 5.645319307979662
+Plan length: 12  Time elapsed in seconds: 77.95292147099826
 Load(C1, P1, SFO)
 Load(C2, P2, JFK)
-Fly(P1, SFO, JFK)
-Fly(P2, JFK, SFO)
+Fly(P1, SFO, ATL)
+Load(C3, P1, ATL)
+Fly(P2, JFK, ORD)
+Load(C4, P2, ORD)
+Fly(P2, ORD, SFO)
+Fly(P1, ATL, JFK)
+Unload(C4, P2, SFO)
+Unload(C3, P1, JFK)
 Unload(C2, P2, SFO)
 Unload(C1, P1, JFK)
 ```
@@ -1221,23 +1351,3 @@ Unload(C3, P1, JFK)
 Unload(C2, P2, SFO)
 Unload(C1, P1, JFK)
 ```
-
-
-
------
-
-* Provide an optimal plan for Problems 1, 2, and 3.
-
-
-
-* Compare and contrast non-heuristic search result metrics 
-
-* Compare and contrast heuristic search result metrics using A* with the "ignore preconditions" and "level-sum" heuristics for Problems 1, 2, and 3.
-
-* What was the best heuristic used in these problems? Was it better than non-heuristic search planning methods for all problems? Why or why not?
-
-  The optimal plan for Problem 1 and Problem 2 is `h_ignore_preconditions`
-
-  The optimal plan for Problem 3 is `h_1` 
-
-* Provide tables or other visual aids as needed for clarity in your discussion.
